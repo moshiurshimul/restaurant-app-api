@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Our APP
 
     # 3rd Party APP
+    'rest_framework',
 
 
 ]
