@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Our APP
+    'useraccount.apps.UseraccountConfig',
 
     # 3rd Party APP
     'rest_framework',
+    'phonenumber_field',
 
 
 ]
