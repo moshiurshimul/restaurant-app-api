@@ -28,10 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Our APP
     'user_account.apps.UserAccountConfig',
+    'menu.apps.MenuConfig',
+    'order.apps.OrderConfig',
 
     # 3rd Party APP
     'rest_framework',
     'phonenumber_field',
+
 ]
 
 AUTH_USER_MODEL = 'user_account.RestaurantUser'
