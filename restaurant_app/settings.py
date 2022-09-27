@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
 ]
 
+AUTH_USER_MODEL = 'user_account.RestaurantUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

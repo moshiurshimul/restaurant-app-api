@@ -5,11 +5,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class RestaurantUser(AbstractUser):
-    phone_number = PhoneNumberField(null=False, blank=False, unique=True)
-    email = models.EmailField(_('Email'), blank=False, unique=True)
+    phone_number = PhoneNumberField(unique=True, null=False, blank=False,)
+    email = models.EmailField(_('Email'), unique=True, null=False, blank=False,)
 
+    EMAIL_FIELD = "email"
     USERNAME_FIELD = 'phone_number'
-
-
-
-
+    REQUIRED_FIELDS = ['email']
