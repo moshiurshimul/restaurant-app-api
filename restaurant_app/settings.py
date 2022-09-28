@@ -34,10 +34,17 @@ INSTALLED_APPS = [
     # 3rd Party APP
     'rest_framework',
     'phonenumber_field',
+    'rest_framework_simplejwt',
 
 ]
 
 AUTH_USER_MODEL = 'user_account.RestaurantUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
