@@ -8,6 +8,4 @@ class RestaurantUser(AbstractUser):
     phone_number = PhoneNumberField(unique=True, null=False, blank=False,)
     email = models.EmailField(_('Email'), unique=True, null=False, blank=False,)
 
-    EMAIL_FIELD = "email"
-    USERNAME_FIELD = 'phone_number'
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = ['phone_number', 'email']

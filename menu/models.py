@@ -18,6 +18,3 @@ class Menu(models.Model):
     ability_today = models.CharField(max_length=30, choices=Ability_Today, default='yes')
     price = MoneyField(max_digits=6, decimal_places=2, default_currency='BDT', null=True)
 
-
-
-

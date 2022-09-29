@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from menu.models import Menu
+
+
+@admin.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ('title', 'short_details', 'available_time', 'ability_today', 'price')
+
