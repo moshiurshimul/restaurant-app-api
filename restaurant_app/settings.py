@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'phonenumber_field',
     'rest_framework_simplejwt',
+    'djmoney',
 
 ]
 
@@ -129,6 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
