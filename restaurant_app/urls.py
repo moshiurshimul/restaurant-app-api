@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.conf import settings
+from django.conf.urls.static import static
+
 from user_account import urls as user_account_urls
+from menu import urls as menu_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('backend/api/v1/user/', include(user_account_urls)),
+    path('backend/api/v1/', include(menu_urls)),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
