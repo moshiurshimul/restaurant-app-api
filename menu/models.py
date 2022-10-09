@@ -5,7 +5,7 @@ from djmoney.models.fields import MoneyField
 class Menu(models.Model):
     Available_Time = (
         ('lunch', 'Lunch 1pm - 4pm'),
-        ('Dinner', 'Dinner 6pm - 11pm'),
+        ('dinner', 'Dinner 6pm - 11pm'),
     )
     Ability_Today = (
         ('yes', 'Yes'),
