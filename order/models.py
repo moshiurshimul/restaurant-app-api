@@ -16,7 +16,7 @@ class Order(models.Model):
         ('order_processing', 'Order processing'),
         ('order_delivered', 'Order delivered')
     )
-    order_id = models.CharField(default=random_string, unique=True, editable=False, primary_key=True)
+    order_id = models.CharField(max_length=5, default=random_string, unique=True, editable=False, primary_key=True)
     set_menu_number = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
