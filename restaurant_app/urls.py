@@ -20,11 +20,13 @@ from django.conf.urls.static import static
 
 from user_account import urls as user_account_urls
 from menu import urls as menu_urls
+from order import urls as order_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('backend/api/v1/user/', include(user_account_urls)),
     path('backend/api/v1/', include(menu_urls)),
+    path('backend/api/v1/', include(order_urls)),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
