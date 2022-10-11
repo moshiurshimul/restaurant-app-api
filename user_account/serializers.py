@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 
 from user_account.models import RestaurantUser
@@ -8,6 +9,17 @@ class UserRegistrationSerializers(serializers.ModelSerializer):
     class Meta:
         model = RestaurantUser
         fields = ('username', 'password', 'email', 'phone_number', )
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = RestaurantUser.objects.create(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            password=make_password(validated_data['password']),
+            phone_number=validated_data['phone_number'],
+        )
+        user.save()
+        return user
 
 
 class UserUpdateSerializers(serializers.ModelSerializer):
