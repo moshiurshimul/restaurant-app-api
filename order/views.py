@@ -2,6 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.filters import SearchFilter
 
 from order.models import Order
 from order.serializers import OrderSerializers, OrderUpdateSerializers
@@ -16,6 +17,8 @@ class OrderViewSet(ModelViewSet):
 
     default_serializer_class = OrderSerializers
     lookup_field = 'order_number'
+    filter_backends = (SearchFilter, )
+    search_fields = ['order_status', ]
 
     def get_serializer_class(self):
         return self.serializer_classes.get(self.action, self.default_serializer_class)
