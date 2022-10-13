@@ -8,12 +8,12 @@ class OrderSerializers(serializers.ModelSerializer):
     order_by = serializers.PrimaryKeyRelatedField(read_only=True)
 
     def create(self, validated_data):
-        order = Order.objects.create(order_by=self.context['request'].user, **validated_data)
-        return order
+        order_by = Order.objects.create(order_by=self.context['request'].user, **validated_data)
+        return order_by
 
     class Meta:
         model = Order
-        fields = ('set_menu_number', 'order_by', )
+        fields = ('order_number', 'set_menu_number', 'created_at', 'order_status', 'order_by',)
 
 
 class OrderUpdateSerializers(serializers.ModelSerializer):

@@ -16,9 +16,9 @@ class Order(models.Model):
         ('order_processing', 'Order processing'),
         ('order_delivered', 'Order delivered')
     )
-    order_id = models.CharField(max_length=5, default=random_string, unique=True, editable=False, primary_key=True)
+    order_number = models.CharField(max_length=5, default=random_string, unique=True, editable=False, primary_key=True)
     set_menu_number = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
-    order_status = models.CharField(max_length=30, default='order_in_queue', choices=ORDER_STATUS_CHOICES)
+    order_status = models.CharField(max_length=50, default='order_in_queue', choices=ORDER_STATUS_CHOICES)
     order_by = models.ForeignKey(User, on_delete=models.CASCADE)
