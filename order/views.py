@@ -29,6 +29,11 @@ class OrderViewSet(ModelViewSet):
 
         return super().get_permissions()
 
+    # def perform_create(self, serializer):
+    #     serializer = self.get_serializer()
+    #     serializer.save(order_by=self.request.user)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = self.get_serializer(instance=instance, data=request.data, partial=True)
