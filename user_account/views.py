@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 
 from user_account.models import RestaurantUser
 from user_account.serializers import UserRegistrationSerializers, UserUpdateSerializers, UserPasswordChangeSerializers
@@ -10,6 +12,15 @@ from user_account.serializers import UserRegistrationSerializers, UserUpdateSeri
 
 class UserRegistrationView(APIView):
     @staticmethod
+    @swagger_auto_schema(request_body=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'username': openapi.Schema(type=openapi.TYPE_STRING, title='Username', example='username'),
+            'password': openapi.Schema(type=openapi.TYPE_STRING, title='Password', example='123@abc'),
+            'email': openapi.Schema(type=openapi.TYPE_STRING, title='Email Address', example='user@example.com'),
+            'phone_number': openapi.Schema(type=openapi.TYPE_STRING, title='Phone Number', example='+8801XXXXXXXXX')
+        }
+    ))
     def post(request, *args, **kwargs):
         serializer = UserRegistrationSerializers(data=request.data)
         if serializer.is_valid():
@@ -42,6 +53,13 @@ class UserChangePasswordView(APIView):
     permission_classes = [IsAuthenticated, ]
 
     @staticmethod
+    @swagger_auto_schema(request_body=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'old-password': openapi.Schema(type=openapi.TYPE_STRING, title='Current Password', example='123@abc'),
+            'new-password': openapi.Schema(type=openapi.TYPE_STRING, title='New Password', example='123@efg'),
+        }
+    ))
     def post(request, *args, **kwargs):
         serializer = UserPasswordChangeSerializers(context={'request': request}, data=request.data)
         if serializer.is_valid():
