@@ -1,5 +1,5 @@
 # Restaurant App backend API
-#### Django, Django rest framework
+### Django, Django rest framework
 
 
 ## Features
@@ -14,8 +14,7 @@ Restaurant app api using **Django , Django rest framework**, user can view menu 
 
 ## API end point
 
-##### _User / Authentication_
-#
+#### _User / Authentication_
 | METHOD | EndPoint | Feature | ACCESS |
 | ------ | ------ | ------ | ------ |
 | _POST_ |  `/backend/api/v1/user/reg/` | _Register New User_ | _All Users_ |
@@ -24,8 +23,7 @@ Restaurant app api using **Django , Django rest framework**, user can view menu 
 | _POST_ |  `/backend/api/v1/user/change-password/` | _User password change_ | _Authentication Required_ |
 | _POST_ |  `/backend/api/v1/user/logout/` | _User Logout_ | _All Users_ |
 
-##### _Restaurant Menu_
-#
+#### _Restaurant Menu_
 | METHOD | EndPoint | Feature | ACCESS |
 | ------ | ------ | ------ | ------ |
 | _GET_ |  `/backend/api/v1/menu/` | _View all Menu items_ | _All Users_ |
@@ -33,8 +31,7 @@ Restaurant app api using **Django , Django rest framework**, user can view menu 
 | _PUT_ |  `/backend/api/v1/menu/{menu_id}` | _Update a Menu item_ | _Staff User_ |
 | _DELETE_ |  `/backend/api/v1/menu/{menu_id}` | _Delete a Menu item_ | _Staff User_ |
 
-##### _Restaurant Order_
-#
+#### _Restaurant Order_
 | METHOD | EndPoint | Feature | ACCESS |
 | ------ | ------ | ------ | ------ |
 | _GET_ |  `/backend/api/v1/order/` | _View all Orders_ | _Staff User_ |
@@ -43,9 +40,7 @@ Restaurant app api using **Django , Django rest framework**, user can view menu 
 | _PUT_ |  `/backend/api/v1/order/{order_id}` | _Update an order status_ | _Staff User_ |
 | _DELETE_ |  `/backend/api/v1/order/{order_id}` | _Delete an order_ | _Staff User_ |
 
-##### _View full API Documentation_
-#
-
+#### _View full API Documentation_
 | METHOD | EndPoint | Feature | ACCESS |
 | ------ | ------ | ------ | ------ |
 | _GET_ |  `/docs/` | _View Full API documentation_ | _All Users_ |
