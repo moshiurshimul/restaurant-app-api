@@ -14,6 +14,7 @@ class OrderSerializers(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('order_number', 'set_menu_number', 'created_at', 'order_status', 'order_by',)
+        read_only_fields = ('order_status', )
 
 
 class OrderUpdateSerializers(serializers.ModelSerializer):
